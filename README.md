@@ -3,19 +3,20 @@
 
 # mriya
 ![Github repo](https://github.com/YaroslavLitvinov/mriya)
-The hybrid query engine that combines Salesforce bulk queries with
-Sqlite3 queries. It supports batches of SQL queries wrapped into
-specific syntax. Salesforce bulk operations supported:
-query,insert,update,delete and soap merge. The results of queries are saving into
-csv files that are readable by sqlite3. So any data transformation can
-be done locally by sqlite and then submitted to salesforce object. One
-thing to note, that Salesforce bulk query syntax is little bit
-different from SOAP query syntax. It's an ordinal salesforce tool like
-Dataloader and Workbench. Sql scripts you create can be visualised by
-representing all sql operations as single direct acyclic graph (DAG).
-Graphs are really useful for complicated scripts.
+The Mriya DMT is a SQL scripting tool created for Salesforce data
+transformations. It implements Salesforce Bulk API operations: query,
+insert, delete and update that altogeter can be treated as an external
+interface of application. Later SOAP merge operation was added to the
+list of supported Salesforce operations.  In addition application has
+adopted Sqlite3 as a local SQL engine.  So you can create various
+transformation scripts just having sequences of SQL commands inside
+and using a lot of intermediate staging tables. It's yet another
+solution for doing same things which Dataloader and Workbench do.
+Sql scripts you created can be visualised by representing all sql
+operations as single direct acyclic graph (DAG), it's suitable for
+complicated scripts.
 
-Following is an example of a graph representation. Click to open it in chrome/firefox.
+A graph example. Click to open it in chrome/firefox.
 ![example of graph](https://rawgit.com/YaroslavLitvinov/mriya/master/readme/graph.svg)
 
 * Install.<br>Requirements and export PYTHONPATH:
